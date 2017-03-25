@@ -24,7 +24,7 @@ labels_train = labels_train[:len(labels_train) / 100]
 
 ### train classifier
 from sklearn.svm import SVC
-clf = SVC(kernel='linear')
+clf = SVC(kernel='rbf')
 t0_train = time()   # start training timer
 clf.fit(features_train, labels_train)
 print "training time:", round(time() - t0_train, 3), "s"

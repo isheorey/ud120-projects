@@ -46,7 +46,7 @@ labels_train = labels_train[:labels_train_end]
 
 ### train classifier
 from sklearn.svm import SVC
-clf = SVC(svm_C, svm_kernel)
+clf = SVC(C=svm_C, kernel=svm_kernel)
 t0_train = time()   # start training timer
 clf.fit(features_train, labels_train)
 print "training time:", round(time() - t0_train, 3), "s"

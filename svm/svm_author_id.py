@@ -9,8 +9,8 @@
 
     Optional passed arguments:
     * sampling_percent (default=100)
-    * svm_kernel (default='linear')
-    * svm_C (default=1.0)
+    * kernel (default='linear')
+    * C (default=1.0)
 """
 
 import sys
@@ -19,15 +19,19 @@ sys.path.append("../tools/")
 from email_preprocess import preprocess
 
 ### process arguments
-sampling_rate = 100
+sampling_pct = 100
 svm_kernel = 'linear'
 svm_C = 1.0
-if sys.argv[1] is not None:
-    sampling_rate = int(sys.argv[1])
-if sys.argv[2] is not None:
+if len(sys.argv) > 1:
+    sampling_pct = int(sys.argv[1])
+if len(sys.argv) > 2:
     svm_kernel = sys.argv[2]
-if sys.argv[3] is not None:
+if len(sys.argv) > 3:
     svm_C = float(sys.argv[3])
+
+print "sampling %:", sampling_pct
+print "kernel:", svm_kernel
+print "C:", svm_C
 
 ### features_train and features_test are the features for the training
 ### and testing datasets, respectively
@@ -35,8 +39,8 @@ if sys.argv[3] is not None:
 features_train, features_test, labels_train, labels_test = preprocess()
 
 ### sample dataset
-features_train_end = len(features_train) * sampling_rate / 100
-labels_train_end = len(labels_train) * sampling_rate / 100
+features_train_end = len(features_train) * sampling_pct / 100
+labels_train_end = len(labels_train) * sampling_pct / 100
 features_train = features_train[:features_train_end]
 labels_train = labels_train[:labels_train_end]
 

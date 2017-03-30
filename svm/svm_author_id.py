@@ -58,3 +58,9 @@ print "prediction time:", round(time() - t0_pred, 3), "s"
 from sklearn.metrics import accuracy_score
 accuracy = accuracy_score(labels_test, pred)
 print "accuracy:", accuracy
+
+# predicted results
+print "prediction for element 10:", pred[10]
+print "prediction for element 26:", pred[26]
+print "prediction for element 50:", pred[50]
+print "# of events predicted to be Chris class:", pred.sum()

@@ -15,7 +15,7 @@ from class_vis import prettyPicture
 ### process arguments
 ada_n_estimators = 50
 if len(sys.argv) > 1:
-    n_estimators = int(sys.argv[1])
+    ada_n_estimators = int(sys.argv[1])
 
 print "# of estimators:", ada_n_estimators
 

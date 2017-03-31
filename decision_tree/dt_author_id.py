@@ -38,6 +38,7 @@ features_train_end = len(features_train) * sampling_pct / 100
 labels_train_end = len(labels_train) * sampling_pct / 100
 features_train = features_train[:features_train_end]
 labels_train = labels_train[:labels_train_end]
+print "# of features:", len(features_train[0])
 
 ### train classifier
 from sklearn import tree
